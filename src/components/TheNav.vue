@@ -1,65 +1,44 @@
 <template>
   <nav> 
-    <ul>
-      <li>
+    <ul> 
+      <li v-for="(menu, index) in MenuList" :key="index"> 
         <div>
-          <RouterLink to="/">
-          <i class="pi pi-home" style="font-size: 1rem"></i>
-          Home 
+          <RouterLink :to="menu.path">
+          <i class="pi" :class="menu.icon" style="font-size: 1rem"></i>
+          {{menu.label}}
           </RouterLink> 
-        </div>
-      </li>
-      <li>
-        <div>
-            <RouterLink to="/dashboard">
-            <i class="pi pi-desktop" style="font-size: 1rem"></i>
-            Dashboard
-          </RouterLink> 
-        </div>
-      </li>
-      <li>
-        <div>
-          <RouterLink to="/user">
-            <i class="pi pi-user" style="font-size: 1rem"></i>
-            User
-          </RouterLink>  
-        </div>
-      </li>
-      <li>
-        <div>
-          <RouterLink to="/message">
-            <i class="pi pi-envelope" style="font-size: 1rem"></i>
-            Message
-          </RouterLink> 
-        </div>
-      </li>
-      <li>
-        <div>
-          <RouterLink to="/login">
-          <i class="pi pi-file" style="font-size: 1rem"></i>
-          정보
-          </RouterLink> 
-        </div>
-      </li>
-      <li>
-        <div>
-        <RouterLink to="/setting">
-          <i class="pi pi-cog" style="font-size: 1rem"></i>
-          Setting
-          
-        </RouterLink> 
-        </div>
-        <ul>
-          <li>Setting 1</li>
-          <li>Setting 2</li>
-          <li>Setting 3</li>
-        </ul>
-      </li>
-    </ul>
-       
+        </div> 
+        <ul v-if="menu.childMenuList != null">
+          <li v-for="(childMenu, index2) in menu.childMenuList" :key="index2">
+            {{ childMenu.label }}
+          </li> 
+        </ul> 
+      </li> 
+    </ul> 
   </nav>
 </template>
-
+<script setup>
+import { PrimeIcons } from '@primevue/core/api'; 
+  const MenuList = [
+      
+      { label: 'HOME', icon: PrimeIcons.HOME, path : '/' },
+      { label: 'Dashboard', icon: PrimeIcons.DESKTOP, path : '/dashboard' },
+      { label: 'User', icon: PrimeIcons.USER, path : '/user' },
+      { label: 'Message', icon: PrimeIcons.ENVELOPE, path : '/message' },
+      { 
+        label: 'Setting', 
+        icon: PrimeIcons.COG, 
+        path : '/setting',
+        childMenuList : [
+          { label: 'Setting1', path : '/setting1' },
+          { label: 'Setting2', path : '/setting2' },
+          { label: 'Setting3', path : '/setting3' },
+        ]
+      },
+      { label: 'Help', icon: PrimeIcons.QUESTION_CIRCLE, path : '/' }
+        
+  ];
+</script>
 <style>
 nav {
   padding: 0; 
@@ -68,7 +47,7 @@ nav {
   gap : 30px;
   background: #fff;
   border: 1px solid #d6d5d5;
-  border-radius: 0 7px 7px 0;
+  border-radius: 0 8px 8px 0;
   border-left: 0;
   overflow:hidden;
 }
@@ -76,6 +55,12 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+nav a i{
+  padding-right: 10px;
 }
 
 nav a.router-link-exact-active {

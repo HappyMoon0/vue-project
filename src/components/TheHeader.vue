@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div id="btn_menu" @click="toggleMenu">
+    <div id="btn_menu" @click="$emit('toggleMenu', isOpen = !isOpen)">
       <i class="pi pi-bars"style="font-size: 1.5rem"></i> 
     </div>  
     <div>
@@ -26,15 +26,7 @@ const items = [
     { label: 'Logout', icon: PrimeIcons.SIGN_OUT, path : '/logout' }
        
 ];
-const isOpend = ref(false); 
-const toggleMenu = () => {
-  isOpend.value = !isOpend.value;
-  if( isOpend.value){
-
-  }else{
-
-  }
-}
+const isOpen = ref(true);  
 
 </script>
 <style scoped>
