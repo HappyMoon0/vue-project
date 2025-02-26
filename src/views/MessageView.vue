@@ -1,6 +1,6 @@
 <template>
     <div>
-        HomeView
+        MessageView
     </div>
 </template>
 

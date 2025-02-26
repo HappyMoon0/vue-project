@@ -1,7 +1,7 @@
 <template> 
   <TheHeader @toggle-menu="toggleMenu"></TheHeader>
   <main> 
-    <Transition :name="transitionName" mode="out-in" >
+    <Transition name="toggle"  >
       <aside v-if="isToggle">     
           <TheNav></TheNav> 
       </aside> 
@@ -26,10 +26,10 @@ const toggleMenu = (isOpen) =>{
 
   isToggle.value = isOpen;
  
-  if(isOpen){
-    transitionName.value = 'slide-left';
+  if(isOpen){ 
+    
   }else{
-    transitionName.value = 'slide-right'; 
+     
   }
 }
 </script>
@@ -42,11 +42,12 @@ const toggleMenu = (isOpen) =>{
   margin: 0 auto 2rem;
 }
 main{
+  position: relative;
   display: flex;
   flex-direction: row;
 }
 main aside{
-  width: 240px; 
+  width: 250px; 
   margin-top: 20px;  
 }
 main #container{
@@ -62,26 +63,16 @@ main #container{
 main #container #routerview{
   padding: 15px;
 }
-.slide-right-enter-active,
-.slide-right-leave-active {
-    transition: transform 0.5s ease;
+.toggle-enter-active, .toggle-leave-active{
+    transition: all 1s
 }
-.slide-right-enter-from {
-    transform: translateX(100%);
+.toggle-enter , .toggle-leave-to{
+  left:-250px;
+  width:0px;
 }
-.slide-right-leave-to {
-    transform: translateX(-100%);
-}
-/* slide left */
-.slide-left-enter-active,
-.slide-left-leave-active {
-    transition: transform 0.5s ease;
-}
-.slide-left-enter-from {
-    transform: translateX(-100%);
-}
-.slide-left-leave-to {
-    transform: translateX(100%);
-}
+.toggle-enter-to , .toggle-leave {
+  left:0px;
+  width:250px;
+} 
  
 </style>
