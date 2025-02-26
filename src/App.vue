@@ -2,12 +2,15 @@
   <TheHeader></TheHeader>
   <main>
     <aside >  
-      <TheNav ></TheNav> 
+      <Transition name="slide" mode="out-in">
+        <TheNav></TheNav> 
+      </Transition>
+      
     </aside> 
   
     <div id="container">
       <TheNavigation></TheNavigation>
-      <RouterView></RouterView>
+      <RouterView id="routerview"></RouterView>
     </div>
   </main>
   
@@ -36,22 +39,23 @@ main{
 }
 main aside{
   width: 240px;
-  background: #fff;
-  border: 1px solid #d6d5d5;
-  margin-top: 30px; 
-  border-radius: 0 7px 7px 0;
-  border-left: 0;
+ 
+  margin-top: 20px; 
+  
   
 }
 main #container{
   width: 100vw;
-  margin: 30px;
+  min-height: 500px;
+  margin: 20px;
   padding: 15px;
   border : 1px solid #d6d5d5;
   box-sizing: border-box;
-  border-radius: 5px;
-  
+  border-radius: 5px; 
   background-color: #fff;
+}
+main #container #routerview{
+  padding: 15px;
 }
 
  

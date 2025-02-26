@@ -1,6 +1,6 @@
 <template>   
   <div class="header_icon" v-for="(item, index) in items" :key="index">
-    <i class="pi" :class="item.icon" style="font-size: 1.8rem"></i>
+    <i class="pi" :class="item.icon" style="font-size: 1.6rem"></i>
     <label>{{ item.label }}</label>
   </div>
 </template>
@@ -24,7 +24,7 @@ const props = defineProps({
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left : 1px solid #666;
+    border-left : 1px solid #d6d5d5;
     padding: 0 20px;
     cursor: pointer;
     width: 80px;
@@ -36,7 +36,7 @@ const props = defineProps({
     transition: 0.2s all ease-in-out; 
   }
   .header_icon:last-child{
-    border-right : 1px solid #666;
+    border-right : 1px solid #d6d5d5;
   }
   .header_icon label{
     font-size: 12px;

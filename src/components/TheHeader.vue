@@ -2,7 +2,7 @@
   <header>
     <div id="btn_menu" @click="toggleMenu">
       <i class="pi pi-bars"style="font-size: 1.5rem"></i> 
-    </div> 
+    </div>  
     <div>
       <h1>title</h1>
     </div>
@@ -44,7 +44,7 @@ const toggleMenu = () => {
     height: 60px;
     box-sizing: border-box;
     background-color: #ffffff;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #d6d5d5;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
