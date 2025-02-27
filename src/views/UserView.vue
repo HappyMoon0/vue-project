@@ -1,39 +1,43 @@
 <template>
-    <div>
-        <h1>컨텐츠 코드 관리</h1><br/>
-        <div>
-            <h3>컨텐츠 코드 추가</h3>
-            <input v-model="inAreaCd" placeholder="공간코드(A00)">
-            <input v-model="inContentsCd" placeholder="컨텐츠코드(C00)">
-            <input v-model="inContentsNm" placeholder="컨텐츠이름">
-        </div>
+    <div> 
+
+        <h1>Vite is running in %MODE%</h1>
+        <br>
+        
+        {{ $store.state.UserStore.id }} 
+        <br>
+        {{ $store.state.UserStore.name }} 
+        <br>
+        {{ $store.state.UserStore.age }} 
+        <br>
+        <button @click="$store.commit('changeName')">이름 변경</button>
+        <button @click="$store.commit('changeAge')">age+</button>
+
+        <br>
+        <p>{{ $store.state.UserStore.morePost }}</p>
+        <button @click="$store.dispatch('getData')">더보기버튼</button>
     </div>
     
-    <DataTable >
-        <Column header="코드" field="areaCd" sortable/>
-        <Column header="컨텐츠 코드" field="inContentsCd" sortable/>
-        <Column header="컨텐츠 이름" field="inContentsNm" sortable/>
-    </DataTable>
 </template>
 
-<script>
-import { ref } from 'vue';
-export default {
-    setup () {
-        
-        const ContentsList = ref([]);
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+{
+    const store = useStore();
+    // state는 moduleName으로 쪼개서 들어간다.
+    const counter = computed(() => store.state.MainStore.counter);
 
-        const inAreaCd  = ref('');
-        const inContentsCd  = ref('');
-        const inContentsNm  = ref('');
-        return {
-            inAreaCd,
-            inContentsCd,
-            inContentsNm,
-            ContentsList
-        }
-    }
+   
+
+    // getters와 mutation은 전역으로 들어가서 store.getters.Counter.time2가 아니라 store.getters.time2이다
+    const test = computed(() => store.getters.time2);
+    const doubleGetters = computed(() => store.getters.doubleCount);
+    const inc = () => store.commit("setCounter", counter.value + 1);
+ 
 }
+ 
+
 </script>
 
 <style  scoped>

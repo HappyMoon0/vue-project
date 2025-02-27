@@ -39,8 +39,9 @@ import { PrimeIcons } from '@primevue/core/api';
         
   ];
 </script>
-<style>
+<style scoped>
 nav {
+  width: inherit;
   padding: 0; 
   display: flex;
   flex-direction: column;
@@ -50,6 +51,8 @@ nav {
   border-radius: 0 8px 8px 0;
   border-left: 0;
   overflow:hidden;
+  position: relative;
+ 
 }
 
 nav a {

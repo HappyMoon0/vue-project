@@ -1,7 +1,7 @@
 <template> 
-  <TheHeader @toggle-menu="toggleMenu"></TheHeader>
+  <TheHeader @toggle-menu="toggleMenu"></TheHeader> 
   <main> 
-    <Transition name="toggle"  >
+    <Transition name="toggle" >
       <aside v-if="isToggle">     
           <TheNav></TheNav> 
       </aside> 
@@ -19,18 +19,10 @@ import TheHeader from '@/components/TheHeader.vue';
 import TheNav from '@/components/TheNav.vue';
 import TheNavigation from '@/components/TheNavigation.vue';
 import { ref } from 'vue';
-
-const transitionName = ref('none');
+ 
 const isToggle = ref(true);
 const toggleMenu = (isOpen) =>{ 
-
   isToggle.value = isOpen;
- 
-  if(isOpen){ 
-    
-  }else{
-     
-  }
 }
 </script>
 
@@ -66,13 +58,14 @@ main #container #routerview{
 .toggle-enter-active, .toggle-leave-active{
     transition: all 1s
 }
-.toggle-enter , .toggle-leave-to{
+.toggle-enter , 
+.toggle-leave-to{
   left:-250px;
   width:0px;
 }
-.toggle-enter-to , .toggle-leave {
+.toggle-enter-to ,
+.toggle-leave {
   left:0px;
   width:250px;
-} 
- 
+}  
 </style>

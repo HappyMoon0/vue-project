@@ -4,14 +4,13 @@
     </div>
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script setup>
+import { computed } from 'vue';
 
-        return {}
-    }
-}
+const newsState = computed(() => store.state.news);
+const dataState = computed(() => store.state.data);
+
+
 </script>
 
 <style  scoped>

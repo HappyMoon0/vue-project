@@ -13,7 +13,32 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 ## Project Setup
 
 ```sh
-npm install
+#npm install
+vue3 + Vite 
+node : v22.14.0 (LTS)
+npm : v10.9.2
+vue : @vue/cli 5.0.8
+
+Vue3
+npm create vue@latest
+
+Tailwind CSS v4.0
+npm install tailwindcss @tailwindcss/vite 
+
+PRIMEVUE
+npm install primevue @primeuix/themes
+npm install tailwindcss-primeui
+npm install primeicons
+
+ROUTE
+npm install vue-router
+
+AXIOS
+npm install axios
+
+Vuex
+npm install vuex
+
 ```
 
 ### Compile and Hot-Reload for Development

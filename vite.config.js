@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
+//const { VITE_APP_API_PREFIX } = import.meta.env;
 export default defineConfig({
   plugins: [
     vue(),
@@ -17,4 +18,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy: {
+      '/api' : { 
+      }
+    }
+  }
 })
