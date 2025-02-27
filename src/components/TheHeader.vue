@@ -28,6 +28,7 @@ const items = [
 ];
 const isOpen = ref(true);  
 
+
 </script>
 <style scoped>
 
@@ -42,6 +43,7 @@ const isOpen = ref(true);
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
+    box-shadow: 0px -4px 8px;
   } 
   header #btn_menu{ 
     width: 80px;

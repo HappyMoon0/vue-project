@@ -5,8 +5,7 @@
   </div>
 </template>
 
-<script setup>  
-import { defineProps } from 'vue'; 
+<script setup>   
 const props = defineProps({
   items: {
     label: String,
@@ -14,8 +13,6 @@ const props = defineProps({
     icon : String
   }
 });
- 
-
 </script>
 
 <style scoped>

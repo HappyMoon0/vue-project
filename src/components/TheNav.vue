@@ -1,5 +1,6 @@
 <template>
   <nav> 
+    <TheNavProfile></TheNavProfile>
     <ul> 
       <li v-for="(menu, index) in MenuList" :key="index"> 
         <div>
@@ -18,6 +19,7 @@
   </nav>
 </template>
 <script setup>
+import TheNavProfile from '@/components/TheNavProfile.vue';
 import { PrimeIcons } from '@primevue/core/api'; 
   const MenuList = [
       
@@ -44,17 +46,14 @@ nav {
   width: inherit;
   padding: 0; 
   display: flex;
-  flex-direction: column;
-  gap : 30px;
+  flex-direction: column; 
   background: #fff;
   border: 1px solid #d6d5d5;
   border-radius: 0 8px 8px 0;
   border-left: 0;
   overflow:hidden;
   position: relative;
- 
-}
-
+} 
 nav a {
   font-weight: bold;
   color: #2c3e50;
@@ -64,20 +63,20 @@ nav a {
 }
 nav a i{
   padding-right: 10px;
-}
-
+} 
 nav a.router-link-exact-active {
   color: #42b983;
-}
-
-
+} 
 nav ul li div{
   cursor: pointer;
   padding: 15px 10px;
   box-sizing: border-box;
   border-bottom: 1px solid #d6d5d5;
 }
-nav ul li:last-child{
+nav > ul > li:first-child{
+  border-top: 1px solid #d6d5d5;
+}
+nav > ul > li:last-child{
   border-bottom: 0;
 } 
 nav ul li ul{

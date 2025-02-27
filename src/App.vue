@@ -1,9 +1,11 @@
 <template> 
   <TheHeader @toggle-menu="toggleMenu"></TheHeader> 
   <main> 
-    <Transition name="toggle" >
-      <aside v-if="isToggle">     
-          <TheNav></TheNav> 
+    <Transition name="slide" mode="out-in">
+      <aside v-show="isToggle">     
+          <TheNav>
+            
+          </TheNav> 
       </aside> 
     </Transition>
     <div id="container">
@@ -14,7 +16,7 @@
   
 </template>
 <script setup>
-import { RouterView } from 'vue-router';
+import { RouterView } from 'vue-router'; 
 import TheHeader from '@/components/TheHeader.vue';
 import TheNav from '@/components/TheNav.vue';
 import TheNavigation from '@/components/TheNavigation.vue';
@@ -45,6 +47,8 @@ main aside{
 main #container{
   width: 100vw;
   min-height: 500px;
+  height: 500px;
+  max-height: 100vh;
   margin: 20px;
   padding: 15px;
   border : 1px solid #d6d5d5;
@@ -57,15 +61,19 @@ main #container #routerview{
 }
 .toggle-enter-active, .toggle-leave-active{
     transition: all 1s
+} 
+
+.slide-enter-to,
+.slide-leave-from {
+  transform:translateX(0);
+  transition-duration: 0.5s; 
+  width:250px;
 }
-.toggle-enter , 
-.toggle-leave-to{
-  left:-250px;
+
+.slide-enter-from,
+.slide-leave-to {
+  transform:translateX(-100%);
+  transition-duration: 0.5s;  
   width:0px;
 }
-.toggle-enter-to ,
-.toggle-leave {
-  left:0px;
-  width:250px;
-}  
 </style>

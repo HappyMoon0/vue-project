@@ -1,10 +1,11 @@
-import axios from "axios";
+import axios from "@/plugins/axios";
 
 export const UserStore = {
     state: () => ({
         id: "kim20",
         name: "kim",
         age: 20,
+        imageUrl : '',
         morePost: {},
     }),
     mutations: {
@@ -16,14 +17,17 @@ export const UserStore = {
             state.age++;
         },
         setMorePost(state, data) {
-            state.morePost = data;
-
+            
             state.name = data.name;
             state.age = data.likes;
+            state.imageUrl = data.userImage;
+            
         },
     },
     getters: {
-        
+        getImageUrl(state) {
+            return state.imageUrl;
+        }, 
     },
     actions: {
         getData(context) {

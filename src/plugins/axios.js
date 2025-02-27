@@ -1,7 +1,28 @@
 import axios from 'axios';
 
-const instance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL, // Vite 환경 변수에서 기본 URL 가져오기
-});
+const axiosInstance = axios.create({
+//   baseURL: import.meta.env.VITE_BASE_URL,
+  // headers: {
+  //   "Content-Type":"application/json"
+  // }
+})
 
-export default instance;
+axiosInstance.interceptors.request.use(
+  (config) => {
+    console.log('axios.js request : ' , config);
+    return config
+  }, 
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+axiosInstance.interceptors.response.use(
+  (res) => {
+    console.log('axios.js response : ' , res);
+    return res
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+) 
+export default axiosInstance;
