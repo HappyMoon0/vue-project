@@ -1,11 +1,9 @@
 import { createStore } from "vuex";
-import { MainStore } from "@/store/mainStore";
-import { UserStore } from "@/store/userStore";
+import { MainStore } from "@/store/authStore"; 
 
 export default createStore({
     modules: { 
-        MainStore,
-        UserStore
+        MainStore 
      }
   });
    

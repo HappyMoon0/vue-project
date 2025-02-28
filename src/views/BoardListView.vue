@@ -1,5 +1,10 @@
 <template>
 	<div class="board"> 
+		<div class="buttons">
+			<div class="right">
+				<router-link to="/boardwrite" class="button blue"><span>쓰기</span></router-link>
+			</div>
+		</div>
 		<table>
 			<colgroup>
 				<col style="width:10%">
@@ -64,4 +69,8 @@ const boardNoClick = (boardItem) => {
 .board table th { padding:8px 10px 10px 10px; vertical-align:middle; color:#1d4281; font-size:14px; border-bottom:1px solid #ccc; background:#f8f8f8; }
 .board table td { padding:7px 10px 9px 10px; text-align:center; vertical-align:middle; border-bottom:1px solid #ccc; font-size:14px; line-heighT:150%; }
 .board table td:nth-child(1) span { cursor: pointer; }
+.buttons { position:relative; height:32px; margin-bottom:20px; }
+.buttons > div.right { position:absolute; height:32px; right:0; }
+.buttons > div > a.button { display:inline-block; min-width:95px; height:32px; line-height:32px; vertical-align:middle; font-size:13px; text-align:center; text-decoration:none; border-radius:20px; }
+.buttons > div > .button.blue { color:#fff; border-color:#0099d2 !important; background:#0099d2 !important; }
 </style>

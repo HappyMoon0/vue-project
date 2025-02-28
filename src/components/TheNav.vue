@@ -27,6 +27,7 @@ import { PrimeIcons } from '@primevue/core/api';
       { label: 'Dashboard', icon: PrimeIcons.DESKTOP, path : '/dashboard' },
       { label: 'User', icon: PrimeIcons.USER, path : '/user' },
       { label: 'Message', icon: PrimeIcons.ENVELOPE, path : '/message' },
+      { label: 'Board', icon: PrimeIcons.BOOK, path : '/board' },
       { 
         label: 'Setting', 
         icon: PrimeIcons.COG, 
@@ -81,10 +82,12 @@ nav > ul > li:last-child{
 } 
 nav ul li ul{
   background-color: #fdfdfd;
-  padding: 10px 0px 10px 30px;
+  padding: 10px 0px 10px 30px; 
+  border-bottom: 1px solid #d6d5d5;
 }
 nav ul li ul li{
   padding: 10px 0;
   cursor: pointer;
-}
+} 
+
 </style>

@@ -1,18 +1,22 @@
 <template>
   <div id="nav_profile">
-      <div id="nav_profile_wrapper"  :style="{ backgroundImage: `url(${$store.state.UserStore.imageUrl})` }">
-        <div id="nav_profile_img" v-if="!$store.state.UserStore.imageUrl">
+      <div id="nav_profile_wrapper"  :style="{ backgroundImage: `url(${userStore.imageUrl})` }">
+        <div id="nav_profile_img" v-if="!userStore.imageUrl">
           <i class="pi pi-camera" style="color: gainsboro; font-size: 2rem;"></i>
         </div>
       </div>
       <ul id="nav_profile_info">
-        <li>{{ $store.state.UserStore.id }} </li>
-        <li>{{ $store.state.UserStore.name }} </li>
-        <li>{{ $store.state.UserStore.age }} </li>
+        <li>{{ userStore.id }} </li>
+        <li>{{ userStore.name }} </li>
+        <li>{{ userStore.age }} </li>
       </ul>
     </div>
 </template>
 <script setup> 
+
+import { UserStore } from "@/store/userStore";  
+const userStore = UserStore();   
+
 </script>
 <style scoped>
  

@@ -1,11 +1,13 @@
 <template>   
-  <div class="header_icon" v-for="(item, index) in items" :key="index">
+  <div class="header_icon" v-for="(item, index) in items" :key="index" @click="headerIconClick(item)">
     <i class="pi" :class="item.icon" style="font-size: 1.6rem"></i>
     <label>{{ item.label }}</label>
   </div>
 </template>
 
 <script setup>   
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const props = defineProps({
   items: {
     label: String,
@@ -13,6 +15,9 @@ const props = defineProps({
     icon : String
   }
 });
+const headerIconClick = () =>{
+  router.push({name : 'login'});
+}
 </script>
 
 <style scoped>
