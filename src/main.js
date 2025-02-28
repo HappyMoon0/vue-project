@@ -23,7 +23,7 @@ const pinia = createPinia();
 pinia.use(createPersistedState({
     storage: localStorage,
     auto: true,
-}));
+}))
 app.use(pinia);
 app.use(router); 
 app.use(PrimeVue); 

@@ -7,6 +7,9 @@
 
 <script setup>   
 import { useRouter } from 'vue-router';
+import { UserStore } from '@/store/userStore';
+
+const userStore = UserStore();
 const router = useRouter();
 const props = defineProps({
   items: {
@@ -15,8 +18,17 @@ const props = defineProps({
     icon : String
   }
 });
-const headerIconClick = () =>{
-  router.push({name : 'login'});
+const headerIconClick = (item) =>{
+  
+  if( item.label === 'Logout')
+  {
+    userStore.logout()
+  }
+  else
+  {
+    router.push({name : 'login'});
+  }
+  
 }
 </script>
 
