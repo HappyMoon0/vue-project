@@ -33,10 +33,17 @@
 			</div>
 		</div>
 		<div class="chat_list">
-
+			<ScrollPanel style="width: 100%; height: 100%">
+				<p>Lorem ipsum dolor ...</p>
+				<p>Lorem ipsum dolor ...</p> 
+			</ScrollPanel>
 		</div>
 		<div class="room_list">
-
+			<ScrollPanel style="width: 100%; height: 100%">
+				<p>
+					Lorem ipsum dolor ...
+				</p>
+			</ScrollPanel>
 		</div>
 	</div>
 </div>
@@ -47,7 +54,7 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import Select from 'primevue/select';
-
+import ScrollPanel from 'primevue/scrollpanel';
 </script>
 
 <style scoped> 
@@ -65,7 +72,7 @@ import Select from 'primevue/select';
     flex-direction: column;
 	box-sizing: border-box;
 	border-right: 1px solid #cbd5e1;
-    background-color: aliceblue;
+    background-color: #fff;
     width: calc(100%);
     height: 600px;
     justify-content: space-between;
@@ -79,13 +86,13 @@ import Select from 'primevue/select';
 .chat_list{
 	width: 300px;
 	height: 600px;
+	padding : 10px 15px;
 	background-color: blanchedalmond;
 } 
-.room_list{
-	margin-left: 5px;
+.room_list{ 
 	width: 500px;
 	height: 600px;
-	background-color: beige;
+	padding : 10px 15px; 
 } 
 .p-select{
 	border-radius: 0px;

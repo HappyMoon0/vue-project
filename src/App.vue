@@ -9,7 +9,7 @@
       </aside> 
     </Transition>
     <div id="container">
-      <TheNavigation></TheNavigation>
+      <!-- <TheNavigation></TheNavigation> -->
       <RouterView id="routerview"></RouterView>
     </div>
   </main>
