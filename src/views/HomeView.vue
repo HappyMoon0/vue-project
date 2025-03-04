@@ -34,15 +34,81 @@
 		</div>
 		<div class="chat_list">
 			<ScrollPanel style="width: 100%; height: 100%">
-				<p>Lorem ipsum dolor ...</p>
-				<p>Lorem ipsum dolor ...</p> 
+				
 			</ScrollPanel>
 		</div>
 		<div class="room_list">
 			<ScrollPanel style="width: 100%; height: 100%">
-				<p>
-					Lorem ipsum dolor ...
-				</p>
+				<Panel class="m-8">
+					<template #header>
+						<div class="flex items-center gap-2">
+							<Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+							<span class="font-bold">Amy Elsner</span>
+						</div>
+					</template>
+					<template #footer>
+						<div class="flex flex-wrap items-center justify-between gap-4">
+							<div class="flex items-center gap-2">
+								<Button icon="pi pi-user" rounded text></Button>
+								<Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+							</div>
+							<span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
+						</div>
+					</template>
+					<template #icons>
+						<Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
+						<Menu ref="menu" id="config_menu" :model="items" popup />
+					</template>
+					<p class="m-0">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit
+					</p>
+				</Panel>
+				<Panel class="m-8">
+					<template #header>
+						<div class="flex items-center gap-2">
+							<Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+							<span class="font-bold">Amy Elsner</span>
+						</div>
+					</template>
+					<template #footer>
+						<div class="flex flex-wrap items-center justify-between gap-4">
+							<div class="flex items-center gap-2"> 
+								<Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+							</div>
+							<span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
+						</div>
+					</template>
+					<template #icons>
+						<Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
+						<Menu ref="menu" id="config_menu" :model="items" popup />
+					</template>
+					<p class="m-0">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit
+					</p>
+				</Panel>
+				<Panel class="m-8">
+					<template #header>
+						<div class="flex items-center gap-2">
+							<Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+							<span class="font-bold">Amy Elsner</span>
+						</div>
+					</template>
+					<template #footer>
+						<div class="flex flex-wrap items-center justify-between gap-4">
+							<div class="flex items-center gap-2"> 
+								<Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+							</div>
+							<span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
+						</div>
+					</template>
+					<template #icons>
+						<Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
+						<Menu ref="menu" id="config_menu" :model="items" popup />
+					</template>
+					<p class="m-0">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit
+					</p>
+				</Panel>
 			</ScrollPanel>
 		</div>
 	</div>
@@ -55,6 +121,7 @@ import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import Select from 'primevue/select';
 import ScrollPanel from 'primevue/scrollpanel';
+import Panel from 'primevue/panel';
 </script>
 
 <style scoped> 
@@ -91,8 +158,7 @@ import ScrollPanel from 'primevue/scrollpanel';
 } 
 .room_list{ 
 	width: 500px;
-	height: 600px;
-	padding : 10px 15px; 
+	height: 600px; 
 } 
 .p-select{
 	border-radius: 0px;
@@ -104,6 +170,14 @@ import ScrollPanel from 'primevue/scrollpanel';
 	border-radius: 0px;
 	border-right: 0px;
 	border-bottom: 0px;
+} 
+.p-panel{
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px
+}
+.p-panel:last-child{
+	margin-bottom: 10px;
 }
 
 </style>
