@@ -21,7 +21,7 @@ const items = [
      
     { label: 'Message', icon: PrimeIcons.ENVELOPE, path : '/message' },
     { label: 'Schedule', icon: PrimeIcons.CALENDAR, path : '/schedule' },
-    { label: 'Monitor', icon: PrimeIcons.DESKTOP, path : '/monitor' },
+    { label: 'Homepage', icon: PrimeIcons.DESKTOP, path : '/homepage' },
     { label: 'Login', icon: PrimeIcons.SIGN_IN, path : '/login' },
     { label: 'Logout', icon: PrimeIcons.SIGN_OUT, path : '/logout' }
        

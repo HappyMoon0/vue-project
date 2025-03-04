@@ -7,6 +7,7 @@ import UserView from "@/views/UserView.vue";
 import MessageView from "@/views/MessageView.vue";
 import SettingView from "@/views/SettingView.vue"; 
 import DepthMenu from "@/views/depth1/DepthMenu.vue"; 
+import Provide from "@/components/test/Provide.vue";
 
 import BoardView from "@/views/BoardView.vue";
 import BoardListView from "@/views/BoardListView.vue";
@@ -60,9 +61,9 @@ const routes = [
         component : SettingView
     }, 
     {
-        path : '/depth2',
-        name : 'depth2',
-        component : DepthMenu
+        path : '/test/Provide',
+        name : 'provide',
+        component : Provide
     }
 ];
 

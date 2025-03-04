@@ -45,19 +45,18 @@ main aside{
   margin-top: 20px;  
 }
 main #container{
-  width: 100vw;
-  min-height: 500px;
-  height: 500px;
-  max-height: 100vh;
-  margin: 20px;
-  padding: 15px;
+  width: 100vw; 
+  height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  margin: 20px 0 20px 20px; 
   border : 1px solid #d6d5d5;
+  border-right: 0px;
   box-sizing: border-box;
-  border-radius: 8px; 
+  border-radius: 8px 0px 0px 8px; 
   background-color: #fff;
 }
 main #container #routerview{
-  padding: 15px;
+  /* padding: 15px; */
 }
 .toggle-enter-active, .toggle-leave-active{
     transition: all 1s

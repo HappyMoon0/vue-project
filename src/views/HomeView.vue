@@ -1,67 +1,102 @@
-<template>
-	<div class="board"> 
-		<table>
-			<colgroup>
-				<col style="width:10%">
-				<col>
-				<col style="width:15%">
-				<col style="width:25%">
-			</colgroup>
-			<thead>
-				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">제목</th>
-					<th scope="col">작성자</th>
-					<th scope="col">작성일</th>
-				</tr>
-			</thead>
-			<tbody> 
-				<tr v-for="boardItem in boardList" v-bind:key="boardItem.no">
-					<td><span @click="boardNoClick(boardItem)">{{boardItem.no}}</span></td>
-					<td><RouterLink :to="{name : 'boardDetail', query : {boardNo: boardItem.no}}">{{boardItem.subject}}</RouterLink></td>
-					<td>{{boardItem.writer}}</td>
-					<td>{{boardItem.writedate}}</td>
-				</tr> 
-			</tbody>
-		</table>
+<template> 
+<div>
+	<div id="chat_container">
+		<div class="chat">  
+
+			<div class="room_title">
+				asdfasdf
+			</div>
+
+			<div class="room_chat">
+
+				asdfzxcv
+			</div> 
+			<div class="room_input flex flex-row "> 
+				
+				
+					<div class="rounded-bl-lg bg-white-500 w-16 content-center text-center bg-white border-t-1 border-r-1"
+					 style="border-color: #cbd5e1;">
+						<i class="pi pi-user"></i>
+					</div>
+					
+					<Select 
+					v-model="selectedCity" 
+					:options="cities" 
+					optionLabel="name" 
+					placeholder="User"  
+					class="w-1/5 rounded-none"/>
+					
+					<InputText class="w-full rounded-none divide-none border-red-50"></InputText>
+				
+				
+				
+			</div>
+		</div>
+		<div class="chat_list">
+
+		</div>
+		<div class="room_list">
+
+		</div>
 	</div>
+</div>
 </template>
 
-<script setup>
-import { useRouter } from 'vue-router';
-const boardList =[
-{
-	"no": 1,
-	"subject": "테스트 제목1",
-	"content": "테스트 내용1",
-	"writer": "testid1",
-	"writedate": "2021-08-09 13:00:00"
-},
-{
-	"no": 2,
-	"subject": "테스트 제목2",
-	"content": "테스트 내용2",
-	"writer": "testid2",
-	"writedate": "2021-08-09 13:10:00"
-},
-{
-	"no": 3,
-	"subject": "테스트 제목3",
-	"content": "테스트 내용3",
-	"writer": "testid3",
-	"writedate": "2021-08-09 13:20:00"
-}
-];
-const router = useRouter();
-const boardNoClick = (boardItem) => {
-	router.push({name : 'boardDetail', query : {boardNo : boardItem.no}});
-}
+<script setup> 
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import InputText from 'primevue/inputtext';
+import Select from 'primevue/select';
+
 </script>
 
-<style scoped>
-.board { width:100%; margin: 20px auto; }
-.board table { width:100%; border-top:2px solid #1d4281; border-spacing:0; }
-.board table th { padding:8px 10px 10px 10px; vertical-align:middle; color:#1d4281; font-size:14px; border-bottom:1px solid #ccc; background:#f8f8f8; }
-.board table td { padding:7px 10px 9px 10px; text-align:center; vertical-align:middle; border-bottom:1px solid #ccc; font-size:14px; line-heighT:150%; }
-.board table td:nth-child(1) span { cursor: pointer; }
+<style scoped> 
+#chat_container{
+	display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+    margin: 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px 0 0 8px;
+    overflow: hidden;
+}
+#chat_container .chat{
+	display: flex;
+    flex-direction: column;
+	box-sizing: border-box;
+	border-right: 1px solid #cbd5e1;
+    background-color: aliceblue;
+    width: calc(100%);
+    height: 600px;
+    justify-content: space-between;
+} 
+.room_title{
+	padding: 10px 15px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #cbd5e1;
+	
+}
+.chat_list{
+	width: 300px;
+	height: 600px;
+	background-color: blanchedalmond;
+} 
+.room_list{
+	margin-left: 5px;
+	width: 500px;
+	height: 600px;
+	background-color: beige;
+} 
+.p-select{
+	border-radius: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+}
+.p-inputtext{
+	border-radius: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+}
+
 </style>

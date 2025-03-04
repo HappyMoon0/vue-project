@@ -38,7 +38,7 @@ import { PrimeIcons } from '@primevue/core/api';
           { label: 'Setting3', path : '/setting3' },
         ]
       },
-      { label: 'Help', icon: PrimeIcons.QUESTION_CIRCLE, path : '/' }
+      { label: 'Help', icon: PrimeIcons.QUESTION_CIRCLE, path : '/test/' }
         
   ];
 </script>
