@@ -1,21 +1,19 @@
 <template> 
 <div>
-	<div id="chat_btn_container">
+	<div id="item_btn_container">
 		<div class="flex flex-row-reverse">
 			<Button label="Create" severity="Info"  @click="showTweetModal = true"/>
 		</div>
-		<CreateChat v-if="showTweetModal" @close-modal="showTweetModal = false" @chat-create="chatCreate"></CreateChat>
+		<CreateLayout v-if="showTweetModal" @close-modal="showTweetModal = false" @layout-create="itemCreate"></CreateLayout>
 	</div>
-	<div id="chat_container">
-		<div class="chat">  
+	<div id="item_container">
+		<div class="item">  
 
-			<div class="room_title">
-				asdfasdf
+			<div class="room_title"> 
 			</div>
 
-			<div class="room_chat">
-
-				asdfzxcv
+			<div class="room_item">
+ 
 			</div> 
 			<div class="room_input flex flex-row "> 
 				 
@@ -35,18 +33,18 @@
 				 
 			</div>
 		</div>
-		<div class="chat_list">
+		<div class="item_list">
 			<ScrollPanel style="width: 100%; height: 100%">
 				
 			</ScrollPanel>
 		</div>
 		<div class="room_list">
 			<ScrollPanel style="width: 100%; height: 100%">
-				<Panel class="m-8" v-for="(chat, index) in chatList" :key="index">
+				<Panel class="m-8" v-for="(item, index) in itemList" :key="index">
 					<template #header>
 						<div class="flex items-center gap-2">
 							<Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-							<span class="font-bold">{{ chat.title }}</span>
+							<span class="font-bold">{{ item.title }}</span>
 						</div>
 					</template> 
 					<template #icons>
@@ -55,14 +53,12 @@
 						<Menu ref="menu" id="config_menu" :model="items" popup />
 					</template>
 					<p class="m-0">
-						{{ chat.description}}
+						{{ item.description}}
 					</p>
 				</Panel> 
 			</ScrollPanel>
 		</div>
-	</div>
-
-	<v-layout></v-layout>
+	</div> 
 </div>
 </template>
 
@@ -70,16 +66,16 @@
 import InputText from 'primevue/inputtext';
 import Select from 'primevue/select';
 import ScrollPanel from 'primevue/scrollpanel';
-import Panel from 'primevue/panel';
-import CreateChat from '@/components/popup/CreateChat.vue';
+import Panel from 'primevue/panel'; 
 import { reactive, ref } from 'vue';
+import CreateLayout from '@/components/popup/CreateLayout.vue';
 
 const showTweetModal = ref(false);
-const chatList = reactive([]);
-const chatCreate = (params) =>{
-	console.log('charCreate:', params) 
+const itemList = reactive([]);
+const itemCreate = (params) =>{
+	console.log('itemCreate:', params) 
 
-	chatList.push(params);
+	itemList.push(params);
 	showTweetModal.value = false;
  
 }
@@ -87,10 +83,10 @@ const chatCreate = (params) =>{
 </script>
 
 <style scoped> 
-#chat_btn_container{
+#item_btn_container{
 	margin: 10px;
 }
-#chat_container{
+#item_container{
 	display: flex;
     flex-direction: row;
     background-color: aliceblue;
@@ -100,7 +96,7 @@ const chatCreate = (params) =>{
     border-radius: 8px 0 0 8px;
     overflow: hidden;
 }
-#chat_container .chat{
+#item_container .item{
 	display: flex;
     flex-direction: column;
 	box-sizing: border-box;
@@ -116,7 +112,7 @@ const chatCreate = (params) =>{
 	border-bottom: 1px solid #cbd5e1;
 	
 }
-.chat_list{
+.item_list{
 	width: 300px;
 	height: 600px;
 	background-color: blanchedalmond;

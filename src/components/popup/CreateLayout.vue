@@ -5,7 +5,7 @@
   <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
     <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"> 
       <div @click.stop class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-        <form class="create_chat_form" @submit.prevent="submitForm"> 
+        <form class="create_item_form" @submit.prevent="submitForm"> 
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div >
                     <InputText type="text" v-model="title"/>
@@ -65,7 +65,7 @@ const emit = defineEmits();
         alert("인원을 입력해주세요.");
         return;
     }
-    emit('chatCreate', param); 
+    emit('layoutCreate', param); 
     title.value = '';
     description.value = '';
     maxCount.value = 2;
@@ -75,13 +75,13 @@ const emit = defineEmits();
   
   </script>
   <style scoped>
-  .create_chat_form {
+  .create_item_form {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  .create_chat_form div input,
-  .create_chat_form div textarea {
+  .create_item_form div input,
+  .create_item_form div textarea {
     width: 100%;
   }
 </style>
