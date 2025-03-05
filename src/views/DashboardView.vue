@@ -10,7 +10,7 @@
 <script setup>
 import InputText from 'primevue/inputtext';
 import { inject, ref } from 'vue'
-const axios = inject('axios');
+const axios = inject('$axios');
 const ApiUrl = inject('apiUrl');
 const value = ref('asdf');
 

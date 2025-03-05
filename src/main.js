@@ -2,11 +2,15 @@ import './assets/main.css'
 
 import { createApp } from 'vue' 
 import { createPinia } from "pinia"; 
-import {createPersistedState } from 'pinia-plugin-persistedstate'
+import { createPersistedState } from 'pinia-plugin-persistedstate'
+
+import { AuthStore } from './store/authStore'
+import axios from './plugins/axios'
+import axiosInterceptor from './plugins/interceptor'
+axiosInterceptor(AuthStore);
 
 import App from './App.vue' 
-import router from './router/index' 
-import axios from './plugins/axios'
+import router from './router/index'  
 import { apiUrl } from './apiUrl' 
 import Requester from './Requester';
 
@@ -21,7 +25,8 @@ const app = createApp(App);
 app.config.globalProperties.$axios = axios;
 app.config.globalProperties.$router = router;
 app.config.globalProperties.$requester = Requester;
-app.provide('axios' , axios);
+
+app.provide('$axios', axios)
 app.provide('apiUrl' , apiUrl); 
 
 app.component('Button', Button);
